@@ -71,9 +71,9 @@ public class Joc {
 		for (int x = 0; x < dimensions; x++) {
 			for (int y = 0; y < dimensions; y++) {
 				if(map[x][y]){
-					System.out.print(" x ");
+					System.out.print(" x");
 				} else {
-					System.out.print(" * ");
+					System.out.print(" *");
 				}
 			}
 			System.out.println();
