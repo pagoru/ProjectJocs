@@ -17,6 +17,11 @@ public class Joc {
 	 * Crea la primera instancia del joc.
 	 */
 	public Joc(){
+//		for (int i = 0; i < 5; i++) {
+//			for (int j = 0; j < 10; j++) {
+//				map[i][j] = true;
+//			}
+//		}
 		readInit();
 		printMap();
 	}
@@ -41,6 +46,7 @@ public class Joc {
 		System.out.println("Introdueix les primeres celules, per finalitzar, introdueix '-1'.");
 		do{
 			if(current != -1){
+				current -= 1;
 				if((current >= 0 && current < dimensions)){
 					if(x != -1){
 						y = current;
@@ -71,9 +77,9 @@ public class Joc {
 		for (int x = 0; x < dimensions; x++) {
 			for (int y = 0; y < dimensions; y++) {
 				if(map[x][y]){
-					System.out.print(" x");
+					System.out.print(" x ");
 				} else {
-					System.out.print(" *");
+					System.out.print(" * ");
 				}
 			}
 			System.out.println();
@@ -96,15 +102,13 @@ public class Joc {
 						int newY = y + l;
 						
 						if((newX >= 0 && newX < dimensions)
-								&& (newY >= 0 && newY < dimensions)){
+								&& (newY >= 0 && newY < dimensions)
+								&& (newX != x && newY != y)){
 							if(map[newX][newY]){
 								life++;
 							}
 						}
 					}
-				}
-				if(map[x][y]){
-					life--;
 				}
 				
 				System.out.println(x + "." + y + "<" + map[x][y] + ">" + life);

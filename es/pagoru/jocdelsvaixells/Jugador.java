@@ -2,23 +2,24 @@ package es.pagoru.jocdelsvaixells;
 
 public class Jugador {
 
-	private int[][] ships 		= new int[Joc.dimensions][Joc.dimensions];
+	private String 		name;
+	private int[][] 	ships 					= new int[Joc.dimensions][Joc.dimensions];
 	/*
 	 * Ships
 	 * 0: Aigua
 	 * 1: Vaixell
 	 */
-	private int[][] movements 	= new int[Joc.dimensions][Joc.dimensions];
+	private int[][] 	movements 				= new int[Joc.dimensions][Joc.dimensions];
 	/*
 	 * Movements
 	 * 0: Res
 	 * 1: Vaixell
 	 * 2: Aigua
 	 */
-	private int availableShipsToPut = Joc.ships;
+	private int 		availableShipsToPut 	= Joc.ships;
 	
-	public Jugador(){
-		
+	public Jugador(String name){
+		setName(name);
 	}
 	public int addNewShip(int x, int y){
 		if(availableShipsToPut > 0){
@@ -43,6 +44,9 @@ public class Jugador {
 				if(!shipNear){
 					ships[x][y] = 1;
 					availableShipsToPut--;
+					if(availableShipsToPut == 0){
+						return 2;//Últim vaixell disponible
+					}
 					return 1;//Vaixell colocat
 				}
 				return 0;//Hi ha un vaixell massa aprop
@@ -79,6 +83,12 @@ public class Jugador {
 	}
 	public int[][] getMovements(){
 		return movements;
+	}
+	public String getName(){
+		return name;
+	}
+	public void setName(String n){
+		name = n;
 	}
 	
 }
