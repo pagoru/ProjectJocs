@@ -1,10 +1,12 @@
 package es.pagoru.jocdelavida;
 
 import java.util.Scanner;
-/***
+
+/**
  * 
  * @author Pablo
- * Creat el 17 de Maig de 2016
+ * @since 17/05/2016
+ *
  */
 public class Joc {
 	
